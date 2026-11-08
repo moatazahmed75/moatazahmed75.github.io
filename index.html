@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moataz Ahmed | Personal Portfolio</title>
+<meta name="description" content="Moataz Ahmed - Data Analysis and Digital Marketing Portfolio">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #07111f;
+    color: #f4f7fc;
+    line-height: 1.7;
+}
+
+:root {
+    --blue: #168cff;
+    --light-blue: #53c8ff;
+    --muted: #aab8ca;
+    --card: #101e30;
+    --border: #1d3552;
+}
+
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(7,17,31,.94);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+}
+
+nav {
+    min-height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--blue);
+}
+
+nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+nav a {
+    color: #dce7f5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--light-blue);
+}
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 85% 40%, #073c79 0, transparent 32%),
+      linear-gradient(120deg, #07111f, #0b1d34);
+}
+
+.hero-content {
+    max-width: 760px;
+    padding: 90px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    color: var(--light-blue);
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.1;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero h2 {
+    color: var(--light-blue);
+    font-size: clamp(19px, 3vw, 27px);
+    margin-bottom: 22px;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 620px;
+    font-size: 17px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid var(--blue);
+    transition: .3s;
+}
+
+.btn-primary {
+    color: white;
+    background: var(--blue);
+    box-shadow: 0 0 22px #168cff55;
+}
+
+.btn-outline {
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px #168cff77;
+}
+
+.hero-glow {
+    position: absolute;
+    right: -100px;
+    bottom: -180px;
+    width: 520px;
+    height: 520px;
+    border: 1px solid #168cff44;
+    border-radius: 50%;
+    box-shadow: 0 0 100px #168cff22;
+}
+
+section {
+    padding: 85px 0;
+}
+
+.section-label {
+    color: var(--light-blue);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 34px;
+    margin: 10px 0 35px;
+}
+
+.section-title span {
+    color: var(--blue);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.feature, .card, .skill {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 23px;
+    transition: .3s;
+}
+
+.feature:hover, .card:hover, .skill:hover {
+    border-color: var(--blue);
+    transform: translateY(-4px);
+}
+
+.feature h3 {
+    color: var(--light-blue);
+    margin-bottom: 8px;
+}
+
+.feature p, .card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.dark-section {
+    background: #091626;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.timeline {
+    border-left: 2px solid var(--blue);
+    padding-left: 30px;
+    margin-left: 10px;
+}
+
+.card {
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    left: -39px;
+    top: 28px;
+    width: 14px;
+    height: 14px;
+    background: var(--blue);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--blue);
+}
+
+.card h3 {
+    font-size: 20px;
+    color: white;
+}
+
+.card .company {
+    color: var(--light-blue);
+    font-size: 14px;
+    margin: 5px 0 12px;
+}
+
+.card ul {
+    color: var(--muted);
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.skill {
+    text-align: center;
+    font-weight: bold;
+    color: #e5efff;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-box {
+    text-align: center;
+    background: linear-gradient(120deg, #102b49, #0b1a2c);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 50px 20px;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin: 12px 0 25px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+}
+
+@media(max-width: 800px) {
+    nav {
+        flex-direction: column;
+        padding: 15px 0;
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .about-grid,
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+}
+
+@media(max-width: 480px) {
+    .container {
+        width: 91%;
+    }
+
+    .feature-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">MA.</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <div class="eyebrow">WELCOME TO MY PORTFOLIO</div>
+
+            <h1>MOATAZ <span>AHMED</span></h1>
+
+            <h2>Data Analysis | Digital Marketing</h2>
+
+            <p>
+                A dedicated professional with experience in team leadership,
+                quality control, data-driven work, and digital marketing.
+                Passionate about improving performance and achieving meaningful results.
+            </p>
+
+            <div class="buttons">
+                <a href="#contact" class="btn btn-primary">Let's Connect</a>
+                <a href="#experience" class="btn btn-outline">Explore My Experience</a>
+            </div>
+        </div>
+    </div>
+    <div class="hero-glow"></div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div>
+                <div class="section-label">ABOUT ME</div>
+                <h2 class="section-title">
+                    Turning Challenges Into <span>Progress</span>
+                </h2>
+                <p class="about-text">
+                    I'm Moataz Ahmed, a professional with experience in
+                    team leadership, quality control, autonomous driving
+                    data projects, and digital marketing.
+                    <br><br>
+                    My career journey has helped me develop skills in
+                    team coordination, performance monitoring, quality
+                    improvement, and managing digital advertising campaigns.
+                    I believe in continuous learning, clear communication,
+                    and data-driven decisions.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>Team Leadership</h3>
+                    <p>Coordinating teams and supporting strong performance.</p>
+                </div>
+                <div class="feature">
+                    <h3>Quality Focus</h3>
+                    <p>Maintaining standards and improving work quality.</p>
+                </div>
+                <div class="feature">
+                    <h3>Data Analysis</h3>
+                    <p>Monitoring performance and understanding results.</p>
+                </div>
+                <div class="feature">
+                    <h3>Digital Growth</h3>
+                    <p>Planning and optimizing digital advertising campaigns.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="dark-section" id="experience">
+    <div class="container">
+        <div class="section-label">CAREER JOURNEY</div>
+        <h2 class="section-title">Professional <span>Experience</span></h2>
+
+        <div class="timeline">
+
+            <div class="card">
+                <h3>Team Leader</h3>
+                <div class="company">METI | 2025 – Present</div>
+                <p>Autonomous Driving Data Projects – Cruise</p>
+                <ul>
+                    <li>Coordinate daily team activities and distribute workloads.</li>
+                    <li>Monitor productivity, quality, and performance targets.</li>
+                    <li>Track performance gaps and support improvement plans.</li>
+                    <li>Coordinate with Training and Quality teams.</li>
+                    <li>Support the implementation of client guidelines.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Quality Control (QC)</h3>
+                <div class="company">METI | 2024 – 2025</div>
+                <ul>
+                    <li>Review autonomous driving data annotation quality.</li>
+                    <li>Identify errors and inconsistencies in completed tasks.</li>
+                    <li>Ensure compliance with client guidelines.</li>
+                    <li>Provide feedback to support quality improvement.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Data Annotation</h3>
+                <div class="company">METI | 2023 – 2024</div>
+                <ul>
+                    <li>Annotate autonomous driving data according to project guidelines.</li>
+                    <li>Maintain accuracy and productivity standards.</li>
+                    <li>Follow client instructions and project requirements.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Media Buyer</h3>
+                <div class="company">2025 – Present</div>
+                <ul>
+                    <li>Plan and manage paid advertising campaigns.</li>
+                    <li>Work with Facebook, Instagram, and TikTok advertising.</li>
+                    <li>Manage audience targeting and campaign budgets.</li>
+                    <li>Analyze campaign results and optimize performance.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="container">
+        <div class="section-label">WHAT I DO</div>
+        <h2 class="section-title">Core <span>Skills</span></h2>
+
+        <div class="skills-grid">
+            <div class="skill">Team Leadership</div>
+            <div class="skill">Quality Control</div>
+            <div class="skill">Data Analysis</div>
+            <div class="skill">Performance Monitoring</div>
+            <div class="skill">Workload Management</div>
+            <div class="skill">Digital Marketing</div>
+            <div class="skill">Media Buying</div>
+            <div class="skill">Campaign Optimization</div>
+            <div class="skill">Problem Solving</div>
+        </div>
+    </div>
+</section>
+
+<section class="dark-section" id="education">
+    <div class="container">
+        <div class="section-label">BACKGROUND</div>
+        <h2 class="section-title">Education & <span>Languages</span></h2>
+
+        <div class="education-grid">
+            <div class="feature">
+                <h3>Education</h3>
+                <p>Bachelor's Degree in Tourism and Hotels</p>
+                <p>Major: Hotel Management</p>
+            </div>
+
+            <div class="feature">
+                <h3>Languages</h3>
+                <p>Arabic — Native</p>
+                <p>English — Good</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="contact-box">
+            <div class="section-label">GET IN TOUCH</div>
+            <h2 class="section-title">Let's Work <span>Together</span></h2>
+            <p>Feel free to reach out. I'd be happy to connect.</p>
+
+            <div class="contact-links">
+                <a href="mailto:moataz.a.ahmed.75@gmail.com"
+                   class="btn btn-primary">Email Me</a>
+
+                <a href="tel:01550554170"
+                   class="btn btn-outline">Call Me</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Moataz Ahmed. All Rights Reserved.
+</footer>
+
+</body>
+</html>
