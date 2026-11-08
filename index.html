@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +15,6 @@
     scroll-behavior: smooth;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #07111f;
-    color: #f4f7fc;
-    line-height: 1.7;
-}
-
 :root {
     --blue: #168cff;
     --light-blue: #53c8ff;
@@ -29,17 +23,26 @@ body {
     --border: #1d3552;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background: #07111f;
+    color: #f4f7fc;
+    line-height: 1.7;
+}
+
 .container {
     width: 88%;
     max-width: 1200px;
     margin: auto;
 }
 
+/* NAVIGATION */
+
 header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(7,17,31,.94);
+    background: rgba(7,17,31,.95);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(12px);
 }
@@ -52,7 +55,7 @@ nav {
 }
 
 .logo {
-    font-size: 25px;
+    font-size: 27px;
     font-weight: 800;
     color: var(--blue);
 }
@@ -74,8 +77,41 @@ nav a:hover {
     color: var(--light-blue);
 }
 
+/* BUTTONS */
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid var(--blue);
+    transition: .3s;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.btn-primary {
+    color: white;
+    background: var(--blue);
+    box-shadow: 0 0 22px #168cff55;
+}
+
+.btn-outline {
+    color: white;
+    background: transparent;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px #168cff77;
+}
+
+/* HERO */
+
 .hero {
-    min-height: 570px;
+    min-height: 510px;
     display: flex;
     align-items: center;
     position: relative;
@@ -86,8 +122,8 @@ nav a:hover {
 }
 
 .hero-content {
-    max-width: 760px;
-    padding: 90px 0;
+    max-width: 780px;
+    padding: 65px 0;
     position: relative;
     z-index: 2;
 }
@@ -117,7 +153,7 @@ nav a:hover {
 
 .hero p {
     color: var(--muted);
-    max-width: 620px;
+    max-width: 650px;
     font-size: 17px;
 }
 
@@ -126,31 +162,6 @@ nav a:hover {
     gap: 15px;
     margin-top: 32px;
     flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    border: 1px solid var(--blue);
-    transition: .3s;
-}
-
-.btn-primary {
-    color: white;
-    background: var(--blue);
-    box-shadow: 0 0 22px #168cff55;
-}
-
-.btn-outline {
-    color: white;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px #168cff77;
 }
 
 .hero-glow {
@@ -162,7 +173,24 @@ nav a:hover {
     border: 1px solid #168cff44;
     border-radius: 50%;
     box-shadow: 0 0 100px #168cff22;
+    pointer-events: none;
 }
+
+/* COPY MESSAGE */
+
+.contact-toast {
+    display: none;
+    color: var(--light-blue);
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.contact-toast.show {
+    display: block;
+}
+
+/* SECTIONS */
 
 section {
     padding: 85px 0;
@@ -184,6 +212,8 @@ section {
 .section-title span {
     color: var(--blue);
 }
+
+/* ABOUT */
 
 .about-grid {
     display: grid;
@@ -225,6 +255,8 @@ section {
     color: var(--muted);
     font-size: 14px;
 }
+
+/* EXPERIENCE */
 
 .dark-section {
     background: #091626;
@@ -272,6 +304,8 @@ section {
     font-size: 14px;
 }
 
+/* SKILLS */
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -284,11 +318,15 @@ section {
     color: #e5efff;
 }
 
+/* EDUCATION */
+
 .education-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
+
+/* CONTACT */
 
 .contact-box {
     text-align: center;
@@ -310,6 +348,21 @@ section {
     gap: 15px;
 }
 
+.phone-number {
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    display: none;
+}
+
+.phone-number.show {
+    display: block;
+}
+
+/* FOOTER */
+
 footer {
     padding: 25px;
     text-align: center;
@@ -317,6 +370,8 @@ footer {
     border-top: 1px solid var(--border);
     font-size: 13px;
 }
+
+/* MOBILE */
 
 @media(max-width: 800px) {
     nav {
@@ -345,7 +400,7 @@ footer {
     }
 
     .hero {
-        min-height: 500px;
+        min-height: 460px;
     }
 }
 
@@ -362,6 +417,10 @@ footer {
     section {
         padding: 60px 0;
     }
+
+    .hero h1 {
+        font-size: 43px;
+    }
 }
 </style>
 </head>
@@ -372,6 +431,7 @@ footer {
     <div class="container">
         <nav>
             <div class="logo">MA.</div>
+
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -383,12 +443,15 @@ footer {
     </div>
 </header>
 
+<!-- HERO -->
+
 <section class="hero" id="home">
     <div class="container">
         <div class="hero-content">
+
             <div class="eyebrow">WELCOME TO MY PORTFOLIO</div>
 
-            <h1>MOATAZ <span>AHMED</span></h1>
+            <h1>Moataz <span>Ahmed</span></h1>
 
             <h2>Data Analysis | Digital Marketing</h2>
 
@@ -399,27 +462,44 @@ footer {
             </p>
 
             <div class="buttons">
-                <a href="#contact" class="btn btn-primary">Let's Connect</a>
-                <a href="#experience" class="btn btn-outline">Explore My Experience</a>
+                <button type="button" onclick="copyPhone()" class="btn btn-primary">
+                    Contact Me
+                </button>
+
+                <a href="#experience" class="btn btn-outline">
+                    Explore My Experience
+                </a>
             </div>
+
+            <p class="contact-toast" id="hero-toast" aria-live="polite"></p>
+
         </div>
     </div>
+
     <div class="hero-glow"></div>
 </section>
 
+<!-- ABOUT -->
+
 <section id="about">
     <div class="container">
+
         <div class="about-grid">
+
             <div>
                 <div class="section-label">ABOUT ME</div>
+
                 <h2 class="section-title">
                     Turning Challenges Into <span>Progress</span>
                 </h2>
+
                 <p class="about-text">
                     I'm Moataz Ahmed, a professional with experience in
                     team leadership, quality control, autonomous driving
                     data projects, and digital marketing.
+
                     <br><br>
+
                     My career journey has helped me develop skills in
                     team coordination, performance monitoring, quality
                     improvement, and managing digital advertising campaigns.
@@ -429,31 +509,42 @@ footer {
             </div>
 
             <div class="feature-grid">
+
                 <div class="feature">
                     <h3>Team Leadership</h3>
                     <p>Coordinating teams and supporting strong performance.</p>
                 </div>
+
                 <div class="feature">
                     <h3>Quality Focus</h3>
                     <p>Maintaining standards and improving work quality.</p>
                 </div>
+
                 <div class="feature">
                     <h3>Data Analysis</h3>
                     <p>Monitoring performance and understanding results.</p>
                 </div>
+
                 <div class="feature">
                     <h3>Digital Growth</h3>
                     <p>Planning and optimizing digital advertising campaigns.</p>
                 </div>
+
             </div>
         </div>
     </div>
 </section>
 
+<!-- EXPERIENCE -->
+
 <section class="dark-section" id="experience">
     <div class="container">
+
         <div class="section-label">CAREER JOURNEY</div>
-        <h2 class="section-title">Professional <span>Experience</span></h2>
+
+        <h2 class="section-title">
+            Professional <span>Experience</span>
+        </h2>
 
         <div class="timeline">
 
@@ -461,6 +552,7 @@ footer {
                 <h3>Team Leader</h3>
                 <div class="company">METI | 2025 – Present</div>
                 <p>Autonomous Driving Data Projects – Cruise</p>
+
                 <ul>
                     <li>Coordinate daily team activities and distribute workloads.</li>
                     <li>Monitor productivity, quality, and performance targets.</li>
@@ -473,6 +565,7 @@ footer {
             <div class="card">
                 <h3>Quality Control (QC)</h3>
                 <div class="company">METI | 2024 – 2025</div>
+
                 <ul>
                     <li>Review autonomous driving data annotation quality.</li>
                     <li>Identify errors and inconsistencies in completed tasks.</li>
@@ -484,6 +577,7 @@ footer {
             <div class="card">
                 <h3>Data Annotation</h3>
                 <div class="company">METI | 2023 – 2024</div>
+
                 <ul>
                     <li>Annotate autonomous driving data according to project guidelines.</li>
                     <li>Maintain accuracy and productivity standards.</li>
@@ -494,6 +588,7 @@ footer {
             <div class="card">
                 <h3>Media Buyer</h3>
                 <div class="company">2025 – Present</div>
+
                 <ul>
                     <li>Plan and manage paid advertising campaigns.</li>
                     <li>Work with Facebook, Instagram, and TikTok advertising.</li>
@@ -506,12 +601,19 @@ footer {
     </div>
 </section>
 
+<!-- SKILLS -->
+
 <section id="skills">
     <div class="container">
+
         <div class="section-label">WHAT I DO</div>
-        <h2 class="section-title">Core <span>Skills</span></h2>
+
+        <h2 class="section-title">
+            Core <span>Skills</span>
+        </h2>
 
         <div class="skills-grid">
+
             <div class="skill">Team Leadership</div>
             <div class="skill">Quality Control</div>
             <div class="skill">Data Analysis</div>
@@ -521,16 +623,24 @@ footer {
             <div class="skill">Media Buying</div>
             <div class="skill">Campaign Optimization</div>
             <div class="skill">Problem Solving</div>
+
         </div>
     </div>
 </section>
 
+<!-- EDUCATION -->
+
 <section class="dark-section" id="education">
     <div class="container">
+
         <div class="section-label">BACKGROUND</div>
-        <h2 class="section-title">Education & <span>Languages</span></h2>
+
+        <h2 class="section-title">
+            Education & <span>Languages</span>
+        </h2>
 
         <div class="education-grid">
+
             <div class="feature">
                 <h3>Education</h3>
                 <p>Bachelor's Degree in Tourism and Hotels</p>
@@ -542,31 +652,85 @@ footer {
                 <p>Arabic — Native</p>
                 <p>English — Good</p>
             </div>
+
         </div>
     </div>
 </section>
+
+<!-- CONTACT -->
 
 <section id="contact">
     <div class="container">
+
         <div class="contact-box">
+
             <div class="section-label">GET IN TOUCH</div>
-            <h2 class="section-title">Let's Work <span>Together</span></h2>
-            <p>Feel free to reach out. I'd be happy to connect.</p>
+
+            <h2 class="section-title">
+                Let's Work <span>Together</span>
+            </h2>
+
+            <p>Feel free to reach out. I'd be happy to connect!</p>
 
             <div class="contact-links">
-                <a href="mailto:moataz.a.ahmed.75@gmail.com"
-                   class="btn btn-primary">Email Me</a>
 
-                <a href="tel:01550554170"
-                   class="btn btn-outline">Call Me</a>
+                <button type="button" onclick="copyPhone()" class="btn btn-primary">
+                    Contact Me
+                </button>
+
+                <a href="mailto:moataz.a.ahmed.75@gmail.com"
+                   class="btn btn-outline">
+                    Email Me
+                </a>
+
             </div>
+
+            <p class="phone-number" id="contact-phone" aria-live="polite">
+                01550554170
+            </p>
+
+            <p class="contact-toast" id="contact-toast" aria-live="polite"></p>
+
         </div>
     </div>
 </section>
+
+<!-- FOOTER -->
 
 <footer>
     © 2026 Moataz Ahmed. All Rights Reserved.
 </footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+async function copyPhone() {
+
+    const phone = "01550554170";
+
+    const heroToast = document.getElementById("hero-toast");
+    const contactToast = document.getElementById("contact-toast");
+    const contactPhone = document.getElementById("contact-phone");
+
+    contactPhone.classList.add("show");
+
+    try {
+        await navigator.clipboard.writeText(phone);
+
+        heroToast.textContent = "✓ " + phone + " — Copied successfully!";
+        contactToast.textContent = "✓ " + phone + " — Copied successfully!";
+
+    } catch (error) {
+
+        heroToast.textContent = "My Phone Number: " + phone;
+        contactToast.textContent = "My Phone Number: " + phone;
+
+    }
+
+    heroToast.classList.add("show");
+    contactToast.classList.add("show");
+}
+</script>
 
 </body>
 </html>
